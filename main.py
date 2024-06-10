@@ -1,4 +1,4 @@
-import schedule
+import schedule_config 
 import time
 # from crawlWeb import crawlThriftBooks
 import preprocessData
@@ -32,10 +32,10 @@ def getData():
 
 
 def main():
-    schedule.every().day.at("00:00").do(getData)
+    schedule_config.every().day.at("00:00").do(getData)
 
     while True:
-        schedule.run_pending()
+        schedule_config.run_pending()
         time.sleep(60)  # sleep for 60s before checking again
 
 if __name__ == "__main__":
