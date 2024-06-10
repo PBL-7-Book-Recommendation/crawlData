@@ -2,7 +2,7 @@ import pandas as pd
 import string
 import re
 from nltk.corpus import stopwords
-from textblob_config import Word
+from textblob import Word
 from autocorrect import Speller
 import pandas as pd
 import datetime
