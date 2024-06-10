@@ -5,6 +5,9 @@ import preprocessData
 import pandas as pd
 from save import saveThriftBooks, saveBookCrossing
 import os
+from flask import Flask
+
+app = Flask(__name__)
 
 def getThriftBooks():
     rawFilePath = os.path.join(os.path.dirname(os.getcwd()), 'src/dataset/thrift-books/raw/1st_raw_thrift_books.csv')
@@ -38,6 +41,13 @@ def main():
         schedule_config.run_pending()
         time.sleep(60)  # sleep for 60s before checking again
 
+@app.route('/')
+def hello():
+    str = 'hello'
+
+    return str
+
 if __name__ == "__main__":
     # main()
     getThriftBooks()
+    app.run(debug=True)
