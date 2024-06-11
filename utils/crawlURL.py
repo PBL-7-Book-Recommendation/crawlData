@@ -66,7 +66,7 @@ def get_new_book_url():
     soup = BeautifulSoup(response.text, "html.parser")
 
     # Tạo một danh sách để lưu thông tin sách
-    books_info = []
+    books_url = []
 
     # Lặp qua từng phần tử <article class="BookListItem">
     for book_item in soup.find_all("article", class_="BookListItem"):
@@ -86,7 +86,7 @@ def get_new_book_url():
         author_name = " ".join(author_name.split())
 
         # Thêm thông tin sách vào danh sách books_info
-        books_info.append(
+        books_url.append(
             {
                 "book_link": book_link,
                 "title": title,
@@ -100,7 +100,7 @@ def get_new_book_url():
     match = re.search(r'"nextPageToken":"([^"]+)"', next_page_token_script)
     next_page_token = match.group(1)
 
-    books_info.extend(
+    books_url.extend(
         get_remaining_books_url_by_request(next_page_token, current_year, current_month)
     )
-    return books_info
+    return books_url

@@ -4,14 +4,14 @@ from bs4 import BeautifulSoup
 import json
 
 
-def get_books_data(books_info):
+def get_books_data(books_url):
     # Tạo danh sách books
-    books_data = []
+    books_info = []
     max_attempt = 10
     sleep_time = 10
 
     # Duyệt qua từng URL
-    for book_info in books_info:
+    for book_info in books_url:
         url = book_info["book_link"]
         attempts = 0
         while attempts < max_attempt:  # Thử lại tối đa 5 lần
@@ -41,7 +41,7 @@ def get_books_data(books_info):
                 pages = book["details"]["numPages"]
 
                 # Thêm thông tin của cuốn sách vào danh sách
-                books_data.append(
+                books_info.append(
                     {
                         "isbn": isbn,
                         "title": book_info["title"],
@@ -65,4 +65,4 @@ def get_books_data(books_info):
                     print(
                         f"Reached maximum number of attempts ({max_attempt}) for URL: {url}. Skipping to next URL."
                     )
-    return books_data
+    return books_info
