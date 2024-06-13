@@ -1,0 +1,10 @@
+schedule
+pandas
+requests
+beautifulsoup4
+nltk
+textblob
+autocorrect
+psycopg2
+python-dotenv
+selenium
