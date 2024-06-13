@@ -3,7 +3,7 @@ import time
 from crawlWeb import crawlThriftBooks
 from crawlWeb.crawlGoodReads import crawlGoodReads
 import preprocessData
-from save import saveThriftBooks, saveBookCrossing, saveGoodReads
+from save import saveThriftBooks, saveGoodReads
 from datetime import date
 
 
