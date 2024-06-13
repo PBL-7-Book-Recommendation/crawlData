@@ -1,7 +1,7 @@
 shedule
 pandas
 requests
-bs4
+beautifulsoup4
 nltk
 textblob
 autocorrect
