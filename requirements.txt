@@ -1,4 +1,4 @@
-shedule
+schedule
 pandas
 requests
 beautifulsoup4
