@@ -5,6 +5,7 @@ from crawlWeb.crawlGoodReads import crawlGoodReads
 import preprocessData
 from save import saveThriftBooks, saveGoodReads
 from datetime import date
+import requests
 
 
 def getThriftBooks():
@@ -30,9 +31,16 @@ def getData():
     if date.today().day != 1:
         return
 
-    # getThriftBooks()
+    getThriftBooks()
     getGoodReads()
     print("Task executed!")
+    try:
+        requests.get(
+            "https://pbl7-book-recommender-content-base.onrender.com/retrain-content-base"
+        )
+    except Exception as e:
+        print("Error when requesting the retrain model API")
+        print(e)
 
 
 def main():
